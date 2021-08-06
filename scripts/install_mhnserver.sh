@@ -76,7 +76,7 @@ mkdir -p /etc/nginx
 echo "==========================================================="
 echo "  Generating SSL certificate"
 echo "==========================================================="
-openssl req -x509 -nodes -days 3650 -newkey rsa:4096 -keyout /etc/nginx/ssl/mhn.key -out /etc/nginx/ssl/mhn.crt
+openssl req -x509 -nodes -writerand -days 3650 -newkey rsa:4096 -keyout /etc/nginx/ssl/mhn.key -out /etc/nginx/ssl/mhn.crt
 
 
 mkdir /etc/nginx/ssl
