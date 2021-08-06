@@ -9,7 +9,7 @@ MHN_HOME=$SCRIPTDIR/..
 if [ -f /etc/debian_version ]; then
     OS=Debian  # XXX or Ubuntu??
     INSTALLER='apt-get'
-    REPOPACKAGES='git build-essential python-pip python-dev redis-server libgeoip-dev nginx libsqlite3-dev'
+    REPOPACKAGES='git build-essential python-pip python-dev redis-server libgeoip-dev nginx libsqlite3-dev openssl'
     PYTHON=`which python`
     PIP=`which pip`
     $PIP install virtualenv
@@ -73,6 +73,14 @@ cd $MHN_HOME
 mkdir -p /opt/www
 mkdir -p /etc/nginx
 
+echo "==========================================================="
+echo "  Generating SSL certificate"
+echo "==========================================================="
+openssl req -x509 -nodes -days 3650 -newkey rsa:4096 -keyout /etc/nginx/ssl/mhn.key -out /etc/nginx/ssl/mhn.crt
+
+
+mkdir /etc/nginx/ssl
+
 if [ $OS == "Debian" ]; then
     mkdir -p /etc/nginx/sites-available
     mkdir -p /etc/nginx/sites-enabled
@@ -93,11 +101,21 @@ server {
     listen       80;
     server_name  _;
     
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen  443 ssl;
+    server_name _;
+    
     location / { 
         try_files \$uri @mhnserver; 
     }
     
     root /opt/www;
+
+    ssl_certificate /etc/nginx/ssl/mhn.crt;
+    ssl_certificate_key /etc/nginx/ssl/mhn.key
 
     location @mhnserver {
       include uwsgi_params;
