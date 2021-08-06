@@ -45,7 +45,7 @@ Install Git
 Install MHN
     
     $ cd /opt/
-    $ sudo git clone https://github.com/pwnlandia/mhn.git
+    $ sudo git clone https://github.com/r2d2sw/mhn.git
     $ cd mhn/
 
 Run the following script to complete the installation.  While this script runs,
