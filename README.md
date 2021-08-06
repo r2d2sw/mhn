@@ -9,14 +9,6 @@ honeypot technologies, including [Snort](https://snort.org/),
 [Dionaea](https://www.edgis-security.org/single-post/dionaea-malware-honeypot), and
 [glastopf](https://github.com/glastopf/), among others.
 
-For questions regarding troubleshooting your installation, please review the
-[MHN Troubleshooting
-Guide](https://github.com/pwnlandia/mhn/wiki/MHN-Troubleshooting-Guide),
-search past questions on the [modern-honey-network Google
-Group](https://groups.google.com/forum/#!forum/modern-honey-network), or send
-emails to <modern-honey-network@googlegroups.com>.
-
-
 ## Features
 
 MHN is a Flask application that exposes an HTTP API that honeypots can use to:
@@ -34,8 +26,6 @@ It also allows system administrators to:
 
 - The MHN server is supported on Ubuntu 18.04, Ubuntu 16.04, and Centos 6.9.  
 - Other versions of Linux may work but are generally not tested or supported.
-
-Note: if you run into trouble during the install, please checkout the [troubleshooting guide](https://github.com/Pwnlandia/MHN/wiki/MHN-Troubleshooting-Guide) on the wiki.  If you only want to experiment with MHN on some virtual machines, please check out the [Getting up and Running with Vagrant](https://github.com/Pwnlandia/mhn/wiki/Getting-up-and-running-using-Vagrant) guide on the wiki.
 
 Install Git
 
@@ -94,99 +84,6 @@ services running on your MHN server.  See below for checking these.
     mhn-uwsgi                        RUNNING    pid 29911, uptime 0:18:41
     mnemosyne                        RUNNING    pid 28173, uptime 0:30:08
 
-### Running MHN Behind a Proxy
-
-For directions on running MHN behind a web proxy, follow the directions in the
-[wiki.](https://github.com/pwnlandia/mhn/wiki/Running-MHN-Behind-a-Web-Proxy)
-
-### Running MHN Over HTTPS
-
-By default MHN will run without HTTPS, to configure your installation to use SSL
-certificates directions can be found in the [wiki.](https://github.com/pwnlandia/mhn/wiki/Running-MHN-Over-HTTPS)
-
-### Running MHN with Docker (not maintained)
-
-Running MHN in docker is not officially supported, but it might work.
-The container takes a few minutes to start at the first launch to initialize.
-Splunk, ArcSight and ELK are not yet supported in Docker.
-
-#### Build it
-
-	$ docker build -t mhn .
-
-#### Run it
-
-    $ docker run -d -p 10000:10000 -p 80:80 -p 3000:3000 -p 8089:8089 \
-    $ --restart unless-stopped \
-    $ --name mhn \
-    $ -e SUPERUSER_EMAIL=root@localhost \
-    $ -e SUPERUSER_PASSWORD=password \
-    $ -e SERVER_BASE_URL="http://mhn" \
-    $ -e HONEYMAP_URL="http://mhn:3000" \
-    $ mhn
-	
-#### Environment variables
-
-	SUPERUSER_EMAIL
-	SUPERUSER_PASSWORD
-	SERVER_BASE_URL
-	HONEYMAP_URL
-	DEBUG_MODE
-	SMTP_HOST
-	SMTP_PORT
-	SMTP_TLS
-	SMTP_SSL
-	SMTP_USERNAME
-	SMTP_PASSWORD
-	SMTP_SENDER
-	MHN_LOG
-
-## Deploying honeypots with MHN
-
-MHN was designed to make scalable deployment of honeypots easier.  Here are the
-steps for deploying a honeypot with MHN:
-
-1. Login to your MHN server web app.
-2. Click the "Deploy" link in the upper left hand corner.
-3. Select a type of honeypot from the drop down menu (e.g. "Ubuntu Dionaea").
-4. Copy the deployment command.
-5. Login to a honeypot server and run this command as root.
-
-If the deploy script successfully completes you should see the new sensor listed
-under your deployed sensor list. For a full list of supported sensors, check the list here: [List of Supported Sensors](https://github.com/pwnlandia/mhn/wiki/List-of-Supported-Sensors)
-
-## Integration with Splunk and ArcSight
-
-hpfeeds-logger can be used to integrate MHN with Splunk and ArcSight.
-
-#### Splunk
-
-
-    cd /opt/mhn/scripts/
-    sudo ./install_hpfeeds-logger-splunk.sh
-
-This will log the events as key/value pairs to /var/log/mhn-splunk.log.  This
-log should be monitored by the SplunkUniversalForwarder.
-
-#### Arcsight
-
-
-    cd /opt/mhn/scripts/
-    sudo ./install_hpfeeds-logger-arcsight.sh
-
-This will log the events as CEF to /var/log/mhn-arcsight.log
-
-## Data	
-*NOTICE* **This section is out of date. Community data is not collected by Anomali although MHN still attempts to send this data to Anomali servers.**	
-
-The MHN server reports anonymized attack data back to Anomali, Inc. (formerly	
-known as ThreatStream). If you are interested in viewing this data, get details	
-in the	
-[wiki](https://github.com/Pwnlandia/mhn/wiki/Getting-Access-to-the-MHN-Community-Data).	
-This data reporting can be disabled by running the following command from the	
-MHN server after completing the initial installation steps outlined above:	
-`/opt/mhn/scripts/disable_collector.sh`	
-
 
 ## Support or Contact
 MHN is an open source project that relies on community involvement. Please check out our troubleshooting guide on the wiki. We will also lend a
@@ -197,6 +94,8 @@ MHN was originally created by Anomali, Inc.
 
 MHN leverages and extends upon several awesome projects by the Honeynet project.
 Please show them your support by way of donation.
+
+Forked from https://github.com/pwnlandia/mhn
 
 ## LICENSE
 
