@@ -64,6 +64,16 @@ looks.
     Mail default sender [""]: 
     Path for log file ["mhn.log"]: 
 
+### Ssl generation
+    Country Name (2 letter code) [AU]:US
+    State or Province Name (full name) [Some-State]:
+    Locality Name (eg, city) []:
+    Organization Name (eg, company) [Internet Widgits Pty Ltd]:
+    Organizational Unit Name (eg, section) []:
+    Common Name (e.g. server FQDN or YOUR name) []:my.mhn.server.domain
+    Email Address []:
+
+
 
 ### Running
 
