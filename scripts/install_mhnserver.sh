@@ -115,7 +115,7 @@ server {
     root /opt/www;
 
     ssl_certificate /etc/nginx/ssl/mhn.crt;
-    ssl_certificate_key /etc/nginx/ssl/mhn.key
+    ssl_certificate_key /etc/nginx/ssl/mhn.key;
 
     location @mhnserver {
       include uwsgi_params;
