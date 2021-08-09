@@ -28,7 +28,7 @@ pip install -e git+https://github.com/r2d2sw/conpot.git@Release_0.5.2#egg=conpot
 pip install -e git+https://github.com/r2d2sw/modbus-tk.git#egg=modbus-tk
 
 # Register sensor with MHN server.
-wget $server_url/static/registration.txt -O registration.sh
+wget --no-check-certificate $server_url/static/registration.txt -O registration.sh
 chmod 755 registration.sh
 # Note: this will export the HPF_* variables
 . ./registration.sh $server_url $deploy_key "conpot"
