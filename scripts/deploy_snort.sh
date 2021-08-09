@@ -43,7 +43,7 @@ pip install virtualenv
 
 cd /tmp
 rm -rf libev*
-wget https://github.com/r2d2sw/hpfeeds/releases/download/libev-4.15/libev-4.15.tar.gz
+wget https://github.com/r2d2sw/hpfeeds/raw/master/lib/libev-4.15.tar.gz
 tar zxvf libev-4.15.tar.gz
 cd libev-4.15
 ./configure && make && make install
