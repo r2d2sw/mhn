@@ -35,11 +35,11 @@ else
     apt-get install -y apache2 python2.7 python-openssl python-gevent libevent-dev python2.7-dev build-essential make python-chardet python-requests python-sqlalchemy python-lxml python-beautifulsoup mongodb python-pip python-dev python-setuptools g++ git php php-dev liblapack-dev gfortran libmysqlclient-dev libxml2-dev libxslt-dev supervisor
 fi
 
-pip install -e git+https://github.com/pwnlandia/hpfeeds.git#egg=hpfeeds-dev
+pip install -e git+https://github.com/r2d2sw/hpfeeds.git#egg=hpfeeds-dev
 
 # Install and configure the PHP sandbox
 cd /opt
-git clone git://github.com/mushorg/BFR.git
+git clone git://github.com/r2d2sw/BFR.git
 cd BFR
 phpize
 ./configure --enable-bfr
@@ -65,7 +65,7 @@ pip install --upgrade greenlet
 pip install --upgrade pgen
 pip install --upgrade cython
 pip uninstall --yes setuptools
-git clone https://github.com/mushorg/glastopf.git $GLASTOPF_HOME
+git clone https://github.com/r2d2sw/glastopf.git $GLASTOPF_HOME
 cd $GLASTOPF_HOME
 python setup.py install
 

@@ -23,9 +23,9 @@ cd $CONPOT_HOME
 virtualenv env
 . env/bin/activate
 pip install -U setuptools
-pip install -e git+https://github.com/pwnlandia/hpfeeds.git#egg=hpfeeds-dev
-pip install -e git+https://github.com/mushorg/conpot.git@Release_0.5.2#egg=conpot-dev
-pip install -e git+https://github.com/mushorg/modbus-tk.git#egg=modbus-tk
+pip install -e git+https://github.com/r2d2sw/hpfeeds.git#egg=hpfeeds-dev
+pip install -e git+https://github.com/r2d2sw/conpot.git@Release_0.5.2#egg=conpot-dev
+pip install -e git+https://github.com/r2d2sw/modbus-tk.git#egg=modbus-tk
 
 # Register sensor with MHN server.
 wget $server_url/static/registration.txt -O registration.sh

@@ -17,7 +17,7 @@ pip install virtualenv
 
 # Get the Wordpot source
 cd /opt
-git clone https://github.com/pwnlandia/wordpot.git
+git clone https://github.com/r2d2sw/wordpot.git
 cd wordpot
 
 virtualenv env

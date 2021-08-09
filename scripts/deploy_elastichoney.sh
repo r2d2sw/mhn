@@ -17,7 +17,7 @@ apt-get -y install git golang supervisor
 
 # Get the elastichoney source
 cd /opt
-git clone https://github.com/pwnlandia/elastichoney.git
+git clone https://github.com/r2d2sw/elastichoney.git
 cd elastichoney
 
 export GOPATH=/opt/elastichoney

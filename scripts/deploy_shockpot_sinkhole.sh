@@ -22,7 +22,7 @@ pip install virtualenv
 
 # Get the Shockpot source
 cd /opt
-git clone https://github.com/pwnlandia/shockpot.git
+git clone https://github.com/r2d2sw/shockpot.git
 cd shockpot
 
 virtualenv env

@@ -47,7 +47,7 @@ useradd -d /home/kippo -s /bin/bash -m kippo -g users
 
 # Get the Kippo source
 cd /opt
-git clone https://github.com/pwnlandia/kippo
+git clone https://github.com/r2d2sw/kippo
 cd kippo
 
 
@@ -62,7 +62,7 @@ if [ -z "$(sysctl -w net.ipv4.conf.eth0.route_localnet=1 2>&1 >/dev/null)" ]
         iptables -F
         #Change this to eth1 if working on Vagrant
         iptables -t nat -A PREROUTING -i eth0 -p tcp -m tcp --dport 22 -j DNAT --to-destination 127.0.0.1:64222
-        
+
         echo "net.ipv4.conf.eth0.route_localnet=1" >> /etc/sysctl.conf
         service iptables save
     else
